@@ -10,7 +10,7 @@ public class Gardener {
 	 * statistikas, irchevs random ujras, ise ro ar daemtxves snake-s da cell
 	 * mianichebs axal mnishvnelobas.
 	 */
-	public void addRemoveFood(){
+	public void addRemoveFood() {
 
 	}
 

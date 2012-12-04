@@ -10,6 +10,8 @@ public class Gardener {
 	public Gardener(Board b, Snake snake) {
 		this.board = b;
 		this.snake = snake;
+		snakeList = (ArrayList<Cell>) snake.getSnakeBody();
+		addRemoveFood();
 	}
 
 	/**
@@ -19,9 +21,9 @@ public class Gardener {
 	 */
 	public void addRemoveFood() {
 		if(checkSnakeEating()){
-			this.cell = getRandomCellFood();
-		}
-		
+			Cell cl = getRandomCellFood();
+			this.cell = new Cell(cl.getX(), cl.getY(), cl.getValue());
+		}	
 	}
 	
 	private Cell getRandomCellFood(){
@@ -40,8 +42,7 @@ public class Gardener {
 	}
 	
 	private boolean checkSnakeEating(){
-		snakeList = (ArrayList<Cell>) snake.getSnakeBody();
-		if(snakeList.get(0).equals(this.getFoodCell()))return true;
+		if(snakeList.get(0).equals(getFoodCell()))return true;
 		return false;
 	}
 

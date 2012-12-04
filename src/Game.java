@@ -1,27 +1,31 @@
-
 public class Game {
-	private Referee ref;
+
+	private Board board;
+	private Stat stats;
 	private Snake snake;
 	private Player player;
-	private Direction dir;
 	private Gardener gardener;
-	private Board board;
 	private Presenter presenter;
-	private Stat stat;
-
-	public Game(Board b, Stat st, Snake sn, Player pl, Gardener g, Presenter pr) {
+	private Referee referee;
+	
+	public Game(Board b, Stat st, Snake sn, Player pl, Gardener g, 
+			Presenter pr, Referee ref) {
+		this.board=b;
+		this.stats=st;
+		this.snake=sn;
+		this.player=pl;
+		this.gardener=g;
+		this.referee=ref;
 	}
 
-	public void Play() {
-		while (ref.isAlive(snake)) {
-			dir = player.getDirection();
+	public void Play(){
+		while(referee.isAlive(snake)){
+			Direction dir = player.getDirection();
 			snake.move(dir);
 			gardener.addRemoveFood();
-			presenter.show(board, snake, gardener);
-			// pause();
+			presenter.showBoard(board);
 		}
-		stat.save(player.getName(), ref.getScore());
-		presenter.showBoardStats(player.getName(), ref.getScore(), stat);
-
+		stats.save(referee.getScore(),player.getName());
+		presenter.showBoardStats(player.getName(), referee.getScore(), stats);
 	}
 }

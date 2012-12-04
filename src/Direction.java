@@ -1,9 +1,6 @@
 /**
-* Snake-is mimartulebebi (Enum)
-**/
+ * Snake-is mimartulebebi (Enum)
+ **/
 public enum Direction {
-moveToRight,
-moveToLeft,
-moveToUp,
-moveToDown;
+	moveToRight, moveToLeft, moveToUp, moveToDown;
 }

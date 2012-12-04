@@ -34,7 +34,7 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 				readyToGiveName = true;
 			}
 		});
-		
+
 		JPanel p = new JPanel();
 		p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
 		p.add(ask);
@@ -43,18 +43,17 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 		add(p);
 		addKeyListener(this);
 		setVisible(true);
-		showControlPanel(true);
+		showControlPanel(false);
 		requestFocus();
 
 	}
 
 	private void showControlPanel(boolean b) {
-		if(b)
+		if (b)
 			setBounds(200, 200, 400, 100);
 		else
 			setBounds(-500, -500, 400, 100);
 	}
-	
 
 	@Override
 	public Direction getDirection() {
@@ -100,7 +99,7 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 	@Override
 	public String getName() {
 		showControlPanel(true);
-		while(! readyToGiveName){
+		while (!readyToGiveName) {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -113,9 +112,9 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 
 //	public static void main(String[] args) throws InterruptedException {
 //		Player p = new MyPlayer();
-//		while (true) {
+//		for (int i = 0; i < 5; i++) {
 //			Thread.sleep(1000);
-//			
+//
 //			switch (p.getDirection()) {
 //			case moveToUp:
 //				System.out.print('^');
@@ -134,5 +133,6 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 //				break;
 //			}
 //		}
+//		System.out.println("name is: "+p.getName());
 //	}
 }

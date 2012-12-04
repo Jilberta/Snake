@@ -22,6 +22,9 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 	private JTextField tf;
 	private boolean readyToGiveName = false;
 
+	// gviwevs JFrames sheqmna, dafokuseba da damalva, imitom rom keyListener rame contextze unda iyos mibmuli, da sneikis prezenteris 
+	// context-ze xeli ar migviwvdeba
+	
 	public MyPlayer() {
 		super();
 		newDir = Direction.moveToRight;
@@ -110,29 +113,4 @@ public class MyPlayer extends JFrame implements Player, KeyListener {
 		return name;
 	}
 
-//	public static void main(String[] args) throws InterruptedException {
-//		Player p = new MyPlayer();
-//		for (int i = 0; i < 5; i++) {
-//			Thread.sleep(1000);
-//
-//			switch (p.getDirection()) {
-//			case moveToUp:
-//				System.out.print('^');
-//				break;
-//			case moveToDown:
-//				System.out.print('v');
-//				break;
-//			case moveToLeft:
-//				System.out.print('<');
-//				break;
-//			case moveToRight:
-//				System.out.print('>');
-//				break;
-//
-//			default:
-//				break;
-//			}
-//		}
-//		System.out.println("name is: "+p.getName());
-//	}
 }

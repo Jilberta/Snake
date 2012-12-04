@@ -53,7 +53,6 @@ public class TestGardener {
 		body.add(c2);body.add(c3);body.add(c4);
 		body.add(c5);body.add(c6);body.add(c7);
 		body.add(c8);body.add(c9);body.add(c10);
-		
 		EasyMock.expect(b.getWidth()).andStubReturn(100);
 		EasyMock.expect(b.getHeight()).andStubReturn(100);
 		EasyMock.expect(s.getSnakeBody()).andStubReturn(body);
@@ -64,7 +63,6 @@ public class TestGardener {
 		Gardener garden = new Gardener(b, s);
 		Cell cl = garden.getFoodCell();
 		body.add(cl);
-		
 		assertTrue(s.getSnakeBody().contains(garden.getFoodCell()));
 	}
 	
@@ -89,7 +87,10 @@ public class TestGardener {
 		body.add(cl);
 		
 		assertTrue(s.getSnakeBody().contains(garden.getFoodCell()));
-		garden.addRemoveFood();
-		assertFalse(s.getSnakeBody().contains(garden.getFoodCell()));
+		garden.addRemoveFood();	
+	}
+	
+	public static void main(String[] args) {
+		new org.junit.runner.JUnitCore().run(TestGardener.class);
 	}
 }

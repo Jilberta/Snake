@@ -92,4 +92,7 @@ public class TestReferee {
 		assertEquals(8, target.getScore());
 	}
 
+	public static void main(String[] args) {
+		new org.junit.runner.JUnitCore().run(TestReferee.class);
+	}
 }

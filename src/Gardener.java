@@ -7,11 +7,15 @@ public class Gardener {
 	private Snake snake;
 	private ArrayList<Cell> snakeList;
 
+	/**
+	 * Constructor
+	 * @param b
+	 * @param snake
+	 */
 	public Gardener(Board b, Snake snake) {
 		this.board = b;
 		this.snake = snake;
-		snakeList = (ArrayList<Cell>) snake.getSnakeBody();
-		addRemoveFood();
+		this.cell = getRandomCellFood();
 	}
 
 	/**
@@ -26,14 +30,20 @@ public class Gardener {
 		}	
 	}
 	
+	/**
+	 * Choose Random Cell and Return it as the food
+	 * 
+	 * @return Cell
+	 */
 	private Cell getRandomCellFood(){
 		Random random = new Random();
+		snakeList = (ArrayList<Cell>) snake.getSnakeBody();
 		int width = 0;
 		int height = 0;
 		Cell newCell;
 		while(true){
-			width = random.nextInt(board.getWidth());
-			height = random.nextInt(board.getHeight());
+			width = random.nextInt(board.getWidth()-1);
+			height = random.nextInt(board.getHeight()-1);
 			newCell = new Cell(width, height, 5);
 			if(!snakeList.contains(newCell))break;
 		}
@@ -41,8 +51,18 @@ public class Gardener {
 		return newCell;
 	}
 	
+	/**
+	 * Checks if the head of the snake is on the Food Cell
+	 * 
+	 * @return boolean
+	 */
 	private boolean checkSnakeEating(){
-		if(snakeList.get(0).equals(getFoodCell()))return true;
+		if(checkCellEqual(snakeList.get(0), getFoodCell()))return true;
+		return false;
+	}
+	
+	private boolean checkCellEqual(Cell c1, Cell c2){
+		if(c1.getX() == c2.getY() && c1.getY() == c2.getY())return true;
 		return false;
 	}
 
